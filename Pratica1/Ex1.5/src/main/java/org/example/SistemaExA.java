@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 
 
-public class Sistema {
+public class SistemaExA {
 
     private final Jedis jedis;
 
@@ -17,7 +17,7 @@ public class Sistema {
     private final int timeslot  = 3600;
 
 
-    public Sistema(){this.jedis = new Jedis("redis://localhost:6379");}
+    public SistemaExA(){this.jedis = new Jedis("redis://localhost:6379");}
 
     public void addUser(String name){
         jedis.sadd("users", name );
@@ -65,7 +65,7 @@ public class Sistema {
 
     public static void main(String[] args) {
 
-        Sistema sistema = new Sistema();
+        SistemaExA sistema = new SistemaExA();
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o nome do usuário: ");
