@@ -1,0 +1,15 @@
+Search for ('Enter' for quit): bernard
+bernardine
+bernardina
+
+Search for ('Enter' for quit): joa
+joanne
+joan
+joannes
+joanie
+joann
+joana
+joane
+joanna
+
+Search for ('Enter' for quit):

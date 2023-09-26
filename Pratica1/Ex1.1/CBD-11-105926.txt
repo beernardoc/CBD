@@ -1,0 +1,49 @@
+127.0.0.1:6379> RPUSH mylist "hello"
+(integer) 1
+127.0.0.1:6379> RPUSH mylist "world"
+(integer) 2
+127.0.0.1:6379> LINSERT mylist BEFORE "world" "there"
+(integer) 3
+127.0.0.1:6379> LRANGE mylist 0 -1
+1) "hello"
+2) "there"
+3) "world"
+127.0.0.1:6379> LLEN mylist
+(integer) 3
+127.0.0.1:6379> LPOP mylist
+"hello"
+127.0.0.1:6379> LRANGE mylist 0 -1
+1) "there"
+2) "world"
+127.0.0.1:6379> LPOP mylist 2
+1) "there"
+2) "world"
+127.0.0.1:6379> LRANGE mylist 0 -1
+(empty array)
+127.0.0.1:6379> LLEN mylist
+(integer) 0
+127.0.0.1:6379> RPUSH mylist "one" "two" "three" "four" "five"
+(integer) 5
+127.0.0.1:6379> LLEN mylist
+(integer) 5
+127.0.0.1:6379> LPOP mylist
+"one"
+127.0.0.1:6379> LRANGE mylist 0 -1
+1) "two"
+2) "three"
+3) "four"
+4) "five"
+127.0.0.1:6379> LPOP mylist 2
+1) "two"
+2) "three"
+127.0.0.1:6379> LRANGE mylist 0 -1
+1) "four"
+2) "five"
+127.0.0.1:6379> LPOP mylist 2
+1) "four"
+2) "five"
+127.0.0.1:6379> LRANGE mylist 0 -1
+(empty array)
+127.0.0.1:6379> 
+
+

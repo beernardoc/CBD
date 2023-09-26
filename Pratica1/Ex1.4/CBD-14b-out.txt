@@ -1,0 +1,20 @@
+Search for ('Enter' for quit): Bernard
+
+Bernardo - 405.0
+Bernard - 1.0
+
+Search for ('Enter' for quit): Joa
+
+Joana - 625.0
+Joaquim - 75.0
+Joabe - 7.0
+Joaninha - 1.0
+Joaquina - 1.0
+
+Search for ('Enter' for quit): Thia
+
+Thiago - 18.0
+Thiara - 1.0
+
+Search for ('Enter' for quit): 
+

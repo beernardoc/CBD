@@ -1,0 +1,16 @@
+
+SET nome "Bernardo"
+GET nome
+DEL nome
+INCR contador
+DECR contador
+HSET perfil:1 nome "Bernardo"
+HGET perfil:1 nome
+LPUSH lista_tarefas "Comprar livro"
+RPUSH lista_tarefas "Ler livro"
+LPOP lista_tarefas
+RPOP lista_tarefas
+SADD conjunto_amigos "João"
+SISMEMBER conjunto_amigos "Maria"
+ZADD leaderboard 100 "João" 85 "Maria" 92 "Carlos"
+ZRANK leaderboard "Carlos"
