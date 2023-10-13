@@ -1,0 +1,57 @@
+bernardo@bernardo-VirtualBox:~$ sudo service mongod start
+bernardo@bernardo-VirtualBox:~$ sudo service mongod status
+● mongod.service - MongoDB Database Server
+     Loaded: loaded (/lib/systemd/system/mongod.service; disabled; vendor prese>
+     Active: active (running) since Fri 2023-10-13 23:29:16 WEST; 2s ago
+       Docs: https://docs.mongodb.org/manual
+   Main PID: 5224 (mongod)
+     Memory: 163.9M
+        CPU: 1.491s
+     CGroup: /system.slice/mongod.service
+             └─5224 /usr/bin/mongod --config /etc/mongod.conf
+
+out 13 23:29:16 bernardo-VirtualBox systemd[1]: Started MongoDB Database Server.
+out 13 23:29:16 bernardo-VirtualBox mongod[5224]: {"t":{"$date":"2023-10-13T22:>
+
+bernardo@bernardo-VirtualBox:~$ mongosh
+Current Mongosh Log ID:	6529c4c72dc155c845291105
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.1
+Using MongoDB:		6.0.11
+Using Mongosh:		2.0.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-10-13T23:29:16.682+01:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2023-10-13T23:29:18.269+01:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2023-10-13T23:29:18.269+01:00: vm.max_map_count is too low
+------
+
+test> use minha_bd
+switched to db minha_bd
+minha_bd> db.colecao.insertOne({nome: "ex", idade: 100})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6529c51e2dc155c845291106")
+}
+
+minha_bd> db.colecao.find({nome: "ex"})
+[
+  { _id: ObjectId("6529c51e2dc155c845291106"), nome: 'ex', idade: 100 }
+]
+minha_bd> db.colecao.deleteOne({nome: "ex"})
+{ acknowledged: true, deletedCount: 1 }
+minha_bd> show databases
+admin     40.00 KiB
+config    12.00 KiB
+local     72.00 KiB
+minha_bd  40.00 KiB
+
+minha_bd> db.dropDatabase()
+{ ok: 1, dropped: 'minha_bd' }
+minha_bd> show databases
+admin   40.00 KiB
+config  12.00 KiB
+local   72.00 KiB
+

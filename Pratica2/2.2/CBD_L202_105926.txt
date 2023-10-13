@@ -1,0 +1,75 @@
+// NMEC: 105926
+
+
+// 1. Liste todos os documentos da coleção.
+
+cbd> db.restaurants.find()
+
+
+// 2. Apresente os campos restaurant_id, nome, localidade e gastronomia para todos os documentos da coleção.
+
+cbd> db.restaurants.find({}, { restaurant_id: 1, nome: 1, localidade: 1, gastronomia: 1 }) 
+// O primeiro campo {} significa que todos os documentos serão considerados, e o segundo onde tem 1 significa os atributos a serem apresentados (poderia colocar 0 para os que nao queria)
+
+
+// 3. Apresente os campos restaurant_id, nome, localidade e código postal (zipcode), masexclua o campo _id de todos os documentos da coleção.
+
+cbd> db.restaurants.find({}, {_id: 0,  restaurant_id: 1, nome: 1, localidade: 1, gastronomia: 1 })
+
+
+// 4. Indique o total de restaurantes localizados no Bronx.
+
+cbd> db.restaurants.find({localidade: "Bronx"}).count()
+
+
+// 5. Apresente os primeiros 15 restaurantes localizados no Bronx, ordenados por ordem crescente de nome.
+
+cbd> db.restaurants.find({ localidade: "Bronx" }).sort({ nome: 1 }).limit(15)
+// para decrescente seria -1
+
+
+// 6. Liste todos os restaurantes que tenham pelo menos um score superior a 85.
+
+cbd> db.restaurants.find({ "grades.score": { $gt: 85 } })
+//o campo gt significa greater than e filtra o campo grades.score 
+
+
+// 7. Encontre os restaurantes que obtiveram uma ou mais pontuações (score) entre[80 e 100].
+
+cbd> db.restaurants.find({ "grades": { $elemMatch: { "score": { $gte: 80, $lte: 100 } } } })
+// $elemMatch é usado para verificar se pelo menos um. $gte (>=) e $lte (<=)
+
+
+// 8. Indique os restaurantes com latitude inferior a -95,7.
+
+cbd> db.restaurants.find({ "address.coord.0": {$lt: -95.7}})
+
+
+// 9. Indique os restaurantes que não têm gastronomia "American", tiveram uma (ou mais) pontuação superior a 70 e estão numa latitude inferior a -65.
+
+cbd> db.restaurants.find({ gastronomia: { $ne: "American" }, "grades.score": { $gt: 70 }, "address.coord.0": { $lt: -65 }})
+// posso fazer um agrupamento de requisitos com a mesma lógica de um AND
+
+
+// 10. Liste o restaurant_id, o nome, a localidade e gastronomia dos restaurantes cujo nome começam por "Wil".
+
+cbd> db.restaurants.find({ nome: /^Wil/ }, { restaurant_id: 1, nome: 1, localidade: 1, gastronomia: 1 })
+// Caracter ^ indica que a palavra a ser pesquisada inicia com o parametro a seguir (se a busca fosse palavras que terminam com wil seria $)
+
+
+// 11. Liste o nome, a localidade e a gastronomia dos restaurantes que pertencem ao Bronx e cuja gastronomia é do tipo "American" ou "Chinese".
+
+cbd> db.restaurants.find({ localidade: "Bronx", $or: [ { gastronomia: "American" }, { gastronomia: "Chinese" }] }, { nome: 1, localidade: 1, gastronomia: 1 })
+// Diferente de quando são requisitos acumulados (and), quando temos o OR indicamos com o $or e passamos o campo e a opção. [ campo: opção ]
+// os campos a serem mostrado, que são indicados com o 1, vêm no final
+
+//ou
+
+cbd> db.restaurants.find({ localidade: "Bronx", gastronomia: {$in: ["American","Chinese"]}},{ nome: 1, localidade: 1, gastronomia: 1 })
+// utilizando o conjunto das possibilidades e a tag $in
+
+
+// 12. Liste o restaurant_id, o nome, a localidade e a gastronomia dos restaurantes localizados em "Staten Island", "Queens", ou "Brooklyn".
+
+cbd> db.restaurants.find({ localidade: { $in: ["Staten Island", "Queens", "Brooklyn"] } }, { restaurant_id: 1, nome: 1, localidade: 1, gastronomia: 1 })
+// como se criasse uma lista das opções antes de
