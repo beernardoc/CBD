@@ -1,7 +1,8 @@
 # Lab02 - MongoDB 
 
 Aluno: Bernardo Pinto
-N° Mec: 105926
+
+NMec: 105926
 
 
 
@@ -100,3 +101,12 @@ db.restaurants.find({ localidade: "Bronx", gastronomia: {$in: ["American","Chine
 db.colecao.find({nome: /^ex/}) # nome iniciado por "ex"
 db.colecao.find({nome: /ex$/}) # nome terminado por "ex"
 ``` 
+
+- Agregação no MongoDB usando `.aggregate()`
+
+```shell
+db.colecao.aggregate([
+  { $match: { campo: valor } },     # Estágio 1: Filtragem
+  { $group: { _id: "$campo", ... } } # Estágio 2: Agrupamento
+])
+```

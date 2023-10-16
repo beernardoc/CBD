@@ -72,4 +72,102 @@ cbd> db.restaurants.find({ localidade: "Bronx", gastronomia: {$in: ["American","
 // 12. Liste o restaurant_id, o nome, a localidade e a gastronomia dos restaurantes localizados em "Staten Island", "Queens", ou "Brooklyn".
 
 cbd> db.restaurants.find({ localidade: { $in: ["Staten Island", "Queens", "Brooklyn"] } }, { restaurant_id: 1, nome: 1, localidade: 1, gastronomia: 1 })
-// como se criasse uma lista das opções antes de
+// como se criasse uma lista das opções antes
+
+
+// 13. Liste o nome, a localidade, o score e gastronomia dos restaurantes que alcançaram sempre pontuações inferiores ou igual a 3.
+
+cbd> db.restaurants.find({ "grades.score": {$not: {$gt: 3}}},{_id: 0, nome:1, localidade: 1, gastronomia:1})
+// note que !$gt é o mesmo que <=
+
+
+// 14. Liste o nome e as avaliações dos restaurantes que obtiveram uma avaliação com um grade "A", um score 10 na data "2014-08-11T00: 00: 00Z" (ISODATE).
+
+cbd> db.restaurants.find( { "grades.grade": "A", "grades.score": 10, "grades.date": ISODate("2014-08-11T00:00:00Z") }, { _id: 0, nome: 1, "grades.grade": 1 } )
+// isoDate é um formato de data para o mongoDB
+
+
+// 15. Liste o restaurant_id, o nome e os score dos restaurantes nos quais a segunda avaliação foi grade "A" e ocorreu em ISODATE "2014-08-11T00: 00: 00Z".
+
+cbd> db.restaurants.find( { "grades.1.grade": "A", "grades.1.date": ISODate("2014-08-11T00:00:00Z") }, { _id: 0, restaurant_id: 1, nome: 1, "grades.score": 1 } )
+// note que grades.1. segue a lógica de listas na programação e indica o segundo elemento da lista
+
+
+// 16. Liste o restaurant_id, o nome, o endereço (address) e as coordenadas geográficas (coord) dos restaurantes onde o 2º elemento da matriz de coordenadas tem um valor superior a 42 e inferior ou igual a 52.
+
+cbd> db.restaurants.find( { "address.coord.1": { $gt: 42, $lte: 52 } }, { _id: 0, restaurant_id: 1, nome: 1, address: 1 } )
+// note que o and pode ser feito com { $gt: 42, $lte: 52 }
+
+
+// 17. Liste nome, gastronomia e localidade de todos os restaurantes ordenando por ordem crescente da gastronomia e, em segundo, por ordem decrescente de localidade.
+
+cbd> db.restaurants.find({}, { _id: 0, nome: 1, gastronomia: 1, localidade: 1 }).sort({ gastronomia: 1, localidade: -1 })
+
+
+// 18. Liste nome, localidade, grade e gastronomia de todos os restaurantes localizados em Brooklyn que não incluem gastronomia "American" e obtiveram uma classificação (grade) "A". Deve apresentá-los por ordem decrescente de gastronomia.
+
+cbd> db.restaurants.find({ localidade: "Brooklyn", gastronomia: { $ne: "American" }, "grades.grade": "A" }, { _id: 0, nome: 1, localidade: 1, gastronomia: 1, "grades.grade": 1 }).sort({ gastronomia: -1 })
+// .sort() sempre no final
+
+
+// 19. Indique o número total de avaliações (numGrades) na coleção.
+
+cbd> db.restaurants.aggregate([{$group : {_id: '$localidade', count : {$sum : 1}} }])
+// o aggregate é uma função que permite fazer operações de agregação, neste caso o group que permite agrupar por um campo e fazer uma operação de soma (count)
+
+
+// 20. Apresente o nome e número de avaliações (numGrades) dos 3 restaurante com mais avaliações.
+
+cbd> db.restaurants.aggregate([ { $project: { nome: 1, numGrades: { $size: "$grades" } } }, { $sort: { numGrades: -1 } }, { $limit: 3 }] )
+// o project cria um novo campo e atribui a ele o size de .grades
+
+
+// 21. Apresente o número total de avaliações (numGrades) em cada dia da semana.
+
+cbd> db.restaurants.aggregate([ { $unwind: "$grades" }, { $group: { _id: { $dayOfWeek: "$grades.date" }, numGrades: { $sum: 1 } } } ])
+// o unwind desagrega a lista de grades e o group agrupa por dia da semana e soma 1
+
+
+// 22. Conte o total de restaurante existentes em cada localidade.
+
+cbd> db.restaurants.aggregate([ { $group: { _id: "$localidade", count: { $sum: 1 } } } ])
+
+
+// 23. Indique os restaurantes que têm gastronomia "Portuguese", o somatório de score é superior a 50 e estão numa latitude inferior a -60.
+
+cbd> db.restaurants.aggregate([{ $addFields: {total_score : {$sum : '$grades.score'} }}, { $match : {total_score : {$gt: 50}, gastronomia: 'Portuguese', 'address.coord.0': {$lt: -60}}}])
+
+
+// 24. Apresente o número de gastronomias diferentes na rua "Fifth Avenue"
+
+cbd> db.restaurants.aggregate([{$match: {'address.rua': 'Fifth Avenue'}}, {$group: {_id: '$gastronomia', count: {$sum: 1}}}])
+
+
+// 25. Apresente o nome e o score médio (avgScore) e número de avaliações (numGrades) dos restaurantes com score médio superior a 30 desde 1-Jan-2014.
+
+cbd> db.restaurants.aggregate([{$match: {'grades.date': {$gte: ISODate('2014-01-01T00:00:00Z')}, 'grades.score': {$gt: 30}}}, {$addFields: {avgScore: {$avg: '$grades.score'}, numGrades: {$size: '$grades'}}}, {$project: {nome: 1, avgScore: 1, numGrades: 1}}])
+// o project é para mostrar apenas os campos que queremos
+
+
+// 26. Apresente o nome e a localidade dos restaurantes localizados em "Manhattan" que possuem pelo menos uma avaliação com um score inferior a 50.
+
+cbd> db.restaurants.find({ localidade: "Manhattan", "grades.score": { $lt: 50 } }, { nome: 1, localidade: 1 })
+
+// 27. Conte quantos restaurantes possuem o nome que começa com a letra "S" e estão localizados no "Brooklyn".
+
+cbd> db.restaurants.find({ nome: /^S/, localidade: "Brooklyn" }).count()
+
+// 28. Liste os restaurantes localizados em "Queens" que possuem gastronomia "Chinese" e uma classificação (grade) "B" ou superior, ordenando por ordem crescente de nome.
+
+cbd> db.restaurants.find({ localidade: "Queens", gastronomia: "Chinese", "grades.grade": { $in: ["A", "B"] } }).sort({ nome: 1 })
+
+// 29. restaurantes que não receberam avaliações desde "2012-01-01T00:00:00Z" ou uma data anterior
+
+cbd> db.restaurants.find({ "grades.date": { $lt: ISODate("2012-01-01T00:00:00Z") } }, { nome: 1, localidade: 1 })
+
+
+
+
+
+
+
