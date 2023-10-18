@@ -110,3 +110,49 @@ db.colecao.aggregate([
   { $group: { _id: "$campo", ... } } # Estágio 2: Agrupamento
 ])
 ```
+
+
+## 2.3 MongoDB – Driver (Java)
+
+Primeiramente foi criado o projeto Maven e inseridas as dependências do Mongo no ficheiro `pom.xml`.
+
+```xml
+<dependency>
+ <groupId>org.mongodb</groupId>
+ <artifactId>mongodb-driver-sync</artifactId>
+ <version>4.11.0</version>
+</dependency>
+```
+
+### Conexão à base de dados:
+
+```java
+MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+MongoDatabase database = mongoClient.getDatabase("cbd"); // cbd é o nome da base de dados
+MongoCollection<Document> db = database.getCollection("restaurants"); // restaurants é o nome da coleção
+```
+
+### CRUD:
+
+Ao utilizar os drivers do Mongo para Java sempre utiliza-se o objeto `Document` para representar os documentos da base de dados.
+
+- Por exemplo para inserir um documento na base de dados:
+```java
+Document document = new Document("nome", nome)
+                .append("building", building)
+                .append("rua", rua)
+                .append("zipcode", zipcode)
+                .append("localidade", localidade)
+                .append("gastronomia", gastronomia);
+
+        db.insertOne(document);
+```
+
+- Para consultar:
+```java
+Document search = new Document(campo, valor);
+
+                    for (Document resultado : db.find(search)) {
+                        System.out.println(resultado.toJson());
+                    }
+```
