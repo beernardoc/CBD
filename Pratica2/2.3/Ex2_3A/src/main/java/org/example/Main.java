@@ -23,9 +23,10 @@ public class Main {
         // Imprima o resultado
         System.out.println("Número de restaurantes em Bronx: " + count);
         */
-
+        System.out.println("Exercício A: ");
+        System.out.println();
         while (true) {
-            System.out.println();
+
             System.out.println("Menu:");
             System.out.println("1. Inserir registro");
             System.out.println("2. Editar registro");
