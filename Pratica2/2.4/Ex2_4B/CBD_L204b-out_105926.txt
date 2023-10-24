@@ -1,0 +1,133 @@
+Digite o nome do usuário:
+bernardo
+Usuário bernardo adicionado com sucesso.
+
+Sistema de Atendimento - bernardo
+
+1.) Listar todos os usuários.
+2.) Adicionar um produto.
+3.) Listar produtos do usuário.
+4.) Deletar produto.
+5.) Sair.
+2
+
+Digite o nome do produto:
+maça
+Digite a quantidade:
+1
+Produto maça adicionado com sucesso.
+
+Sistema de Atendimento - bernardo
+
+1.) Listar todos os usuários.
+2.) Adicionar um produto.
+3.) Listar produtos do usuário.
+4.) Deletar produto.
+5.) Sair.
+2
+
+Digite o nome do produto:
+pêra
+Digite a quantidade:
+1
+Produto pêra adicionado com sucesso.
+
+Sistema de Atendimento - bernardo
+
+1.) Listar todos os usuários.
+2.) Adicionar um produto.
+3.) Listar produtos do usuário.
+4.) Deletar produto.
+5.) Sair.
+2
+
+Digite o nome do produto:
+lapis
+Digite a quantidade:
+1
+Usuário bernardo ultrapassou o limite de produtos por tempo. // só estavam liberados 2 produtos por hora
+
+Sistema de Atendimento - bernardo
+
+1.) Listar todos os usuários.
+2.) Adicionar um produto.
+3.) Listar produtos do usuário.
+4.) Deletar produto.
+5.) Sair.
+3
+
+Produtos do usuário bernardo:
+maça - 1
+pêra - 1
+
+
+
+Sistema de Atendimento - bernardo
+
+1.) Listar todos os usuários.
+2.) Adicionar um produto.
+3.) Listar produtos do usuário.
+4.) Deletar produto.
+5.) Sair.
+5
+
+Saindo...
+
+Process finished with exit code 0
+
+// segunda execução para testar se o usuário bernardo ainda está no sistema:
+
+Digite o nome do usuário:
+bernardo
+Login feito com: bernardo
+
+Sistema de Atendimento - bernardo
+
+1.) Listar todos os usuários.
+2.) Adicionar um produto.
+3.) Listar produtos do usuário.
+4.) Deletar produto.
+5.) Sair.
+3
+
+Produtos do usuário bernardo:
+maça - 1
+pêra - 1
+
+Sistema de Atendimento - bernardo
+
+1.) Listar todos os usuários.
+2.) Adicionar um produto.
+3.) Listar produtos do usuário.
+4.) Deletar produto.
+5.) Sair.
+4
+
+Digite o nome do produto:
+maça
+Produto maça removido com sucesso.
+
+Sistema de Atendimento - bernardo
+
+1.) Listar todos os usuários.
+2.) Adicionar um produto.
+3.) Listar produtos do usuário.
+4.) Deletar produto.
+5.) Sair.
+3
+
+Produtos do usuário bernardo:
+pêra - 1
+
+Sistema de Atendimento - bernardo
+
+1.) Listar todos os usuários.
+2.) Adicionar um produto.
+3.) Listar produtos do usuário.
+4.) Deletar produto.
+5.) Sair.
+5
+
+Saindo...
+
+Process finished with exit code 0
