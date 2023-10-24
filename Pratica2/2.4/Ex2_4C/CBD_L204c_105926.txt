@@ -1,0 +1,35 @@
+Na minha avaliação, ambas as implementações em Redis e MongoDB alcançaram o resultado desejado com sucesso. No entanto, ao compará-las, observo que o MongoDB ofereceu maior acessibilidade tanto na implementação quanto nas operações de consulta. Isso se deve, em grande parte, à flexibilidade proporcionada pela estrutura de dados em forma de "Document".
+
+
+MongoDB:
+
+ Prós:
+	- Suporte para dados complexos e aninhados.
+	- Capacidade de criar hierarquias de dados.
+	- Permite a criação de índices para otimizar o desempenho em consultas.
+
+ Contras:
+	- Requer mais recursos do sistema em comparação com o Redis.
+	- Menos eficiente em operações de leitura/escrita em comparação com o Redis.
+
+
+
+Redis:
+
+ Prós:
+	- Desempenho excepcional para armazenamento de dados no formato chave-valor.
+	- Eficiência em ações de leitura/escrita.
+
+ Contras:
+	- Suporte limitado para dados aninhados ou complexos.
+	- Não permite a criação de índices para otimizar consultas.
+
+
+
+Logo, minha conclusão é que, para a alínea A, onde as quantidades não são um fator crítico, o Redis pode ser uma excelente solução. Sua estrutura de chave-valor do tipo "Produto-Ts" resulta em um ótimo desempenho
+
+No entanto, para a alínea B, onde surge um novo campo "Quantidade", o MongoDB se saiu melhor. Sua capacidade de lidar com dados aninhados e complexos, juntamente com a lógica de "Document" torna sua implementação e ações de consulta muito mais acessiveis
+
+Portanto, como o exercício proposto não se resume apenas a alinéa "A", cheguei a conclusão que o Mongo é a melhor alternativa para solucionar o problema proposto.
+
+
