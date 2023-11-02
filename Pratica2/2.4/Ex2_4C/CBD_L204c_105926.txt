@@ -31,3 +31,5 @@ No entanto, para a alínea B, onde surge um novo campo "Quantidade", o MongoDB s
 Portanto, como o exercício proposto não se resume apenas a alinéa "A", cheguei a conclusão que o Mongo é a melhor alternativa para solucionar o problema proposto.
 
 
+
+
