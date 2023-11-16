@@ -1,0 +1,15 @@
+
+ [json]
+-----------------------------------------------------------------------------------------------------------------
+    {"video_id": 5, "time": "2023-11-16 12:04:20.991Z", "autor": "user5", "comentario": "Love the travel vlog!"}
+   {"video_id": 10, "time": "2023-11-16 12:04:21.004Z", "autor": "user10", "comentario": "Amazing music cover!"}
+             {"video_id": 1, "time": "2023-11-16 12:04:20.974Z", "autor": "user1", "comentario": "Great video!"}
+      {"video_id": 8, "time": "2023-11-16 12:04:20.998Z", "autor": "user8", "comentario": "Great fitness tips!"}
+            {"video_id": 2, "time": "2023-11-16 12:04:20.979Z", "autor": "user2", "comentario": "Nice content!"}
+        {"video_id": 4, "time": "2023-11-16 12:04:20.987Z", "autor": "user4", "comentario": "Delicious recipe!"}
+   {"video_id": 7, "time": "2023-11-16 12:04:20.995Z", "autor": "user7", "comentario": "Beautiful DIY project!"}
+  {"video_id": 6, "time": "2023-11-16 12:04:20.993Z", "autor": "user6", "comentario": "Awesome gaming session!"}
+ {"video_id": 9, "time": "2023-11-16 12:04:21.001Z", "autor": "user9", "comentario": "Interesting tech review!"}
+         {"video_id": 3, "time": "2023-11-16 12:04:20.983Z", "autor": "user3", "comentario": "Very informative"}
+
+(10 rows)

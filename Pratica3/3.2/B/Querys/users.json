@@ -1,0 +1,15 @@
+
+ [json]
+---------------------------------------------------------------------------------------------------------------------
+    {"username": "user8", "email": "user8@example.com", "nome": "Michael Davis", "selo": "2023-11-16 10:32:10.148Z"}
+         {"username": "user2", "email": "user2@example.com", "nome": "Jane Doe", "selo": "2023-11-16 10:30:44.192Z"}
+     {"username": "user9", "email": "user9@example.com", "nome": "Sophia Moore", "selo": "2023-11-16 10:32:32.662Z"}
+      {"username": "user4", "email": "user4@example.com", "nome": "Bob Johnson", "selo": "2023-11-16 10:30:58.204Z"}
+         {"username": "user1", "email": "user1@example.com", "nome": "John Doe", "selo": "2023-11-16 10:30:36.668Z"}
+ {"username": "user10", "email": "user10@example.com", "nome": "William Wilson", "selo": "2023-11-16 10:32:39.296Z"}
+     {"username": "user7", "email": "user7@example.com", "nome": "Grace Taylor", "selo": "2023-11-16 10:31:44.390Z"}
+      {"username": "user3", "email": "user3@example.com", "nome": "Alice Smith", "selo": "2023-11-16 10:30:50.676Z"}
+      {"username": "user6", "email": "user6@example.com", "nome": "David White", "selo": "2023-11-16 10:31:12.601Z"}
+        {"username": "user5", "email": "user5@example.com", "nome": "Eva Brown", "selo": "2023-11-16 10:31:06.000Z"}
+
+(10 rows)

@@ -1,0 +1,122 @@
+-- insert videos.users
+
+INSERT INTO videos.users( username, email, nome, selo) VALUES ('user1', 'user1@example.com', 'John Doe', toTimestamp(now()));
+INSERT INTO videos.users( username, email, nome, selo) VALUES ('user2', 'user2@example.com', 'Jane Doe', toTimestamp(now()));
+INSERT INTO videos.users( username, email, nome, selo) VALUES ('user3', 'user3@example.com', 'Alice Smith', toTimestamp(now()));
+INSERT INTO videos.users( username, email, nome, selo) VALUES ('user4', 'user4@example.com', 'Bob Johnson', toTimestamp(now()));
+INSERT INTO videos.users( username, email, nome, selo) VALUES ('user5', 'user5@example.com', 'Eva Brown', toTimestamp(now()));
+INSERT INTO videos.users( username, email, nome, selo) VALUES ('user6', 'user6@example.com', 'David White', toTimestamp(now()));
+INSERT INTO videos.users( username, email, nome, selo) VALUES ('user7', 'user7@example.com', 'Grace Taylor', toTimestamp(now()));
+INSERT INTO videos.users( username, email, nome, selo) VALUES ('user8', 'user8@example.com', 'Michael Davis', toTimestamp(now()));
+INSERT INTO videos.users( username, email, nome, selo) VALUES ('user9', 'user9@example.com', 'Sophia Moore', toTimestamp(now()));
+INSERT INTO videos.users( username, email, nome, selo) VALUES ('user10', 'user10@example.com', 'William Wilson', toTimestamp(now()));
+
+
+-- insert videos.video
+INSERT INTO videos.video( id, autor, descricao, nome, upload, tags) VALUES (1, 'user1', 'Funny cat video', 'Crazy Cat Compilation', toTimestamp(now()), {'pets', 'funny'});
+INSERT INTO videos.video( id, autor, descricao, nome, upload, tags) VALUES (2, 'user2', 'Beautiful landscape', 'Sunset over the Mountains', toTimestamp(now()), {'nature', 'scenery'});
+INSERT INTO videos.video( id, autor, descricao, nome, upload, tags) VALUES (3, 'user3', 'Educational content', 'Introduction to Quantum Physics', toTimestamp(now()), {'education', 'science'});
+INSERT INTO videos.video( id, autor, descricao, nome, upload, tags) VALUES (4, 'user4', 'Cooking tutorial', 'Homemade Pizza Recipe', toTimestamp(now()), {'cooking', 'food'});
+INSERT INTO videos.video( id, autor, descricao, nome, upload, tags) VALUES (5, 'user5', 'Travel vlog', 'Exploring Tokyo', toTimestamp(now()), {'travel', 'adventure'});
+INSERT INTO videos.video( id, autor, descricao, nome, upload, tags) VALUES (6, 'user6', 'Gaming session', 'Fortnite Battle Royale', toTimestamp(now()), {'gaming', 'entertainment'});
+INSERT INTO videos.video( id, autor, descricao, nome, upload, tags) VALUES (7, 'user7', 'DIY project', 'Handmade Jewelry Tutorial', toTimestamp(now()), {'diy', 'crafts'});
+INSERT INTO videos.video( id, autor, descricao, nome, upload, tags) VALUES (8, 'user8', 'Fitness tips', 'Full Body Workout Routine', toTimestamp(now()), {'fitness', 'health'});
+INSERT INTO videos.video( id, autor, descricao, nome, upload, tags) VALUES (9, 'user9', 'Tech review', 'Latest Smartphone Unboxing', toTimestamp(now()), {'technology', 'gadgets'});
+INSERT INTO videos.video( id, autor, descricao, nome, upload, tags) VALUES (10, 'user10', 'Music cover', 'Acoustic Guitar Performance', toTimestamp(now()), {'music', 'performance'});
+
+
+-- insert videos.video_autor
+INSERT INTO videos.video_autor(autor, time, descricao, id, nome, tags) VALUES ('user1', toTimestamp(now()), 'Funny cat video', 1, 'Crazy Cat Compilation', {'pets', 'funny'});
+INSERT INTO videos.video_autor(autor, time, descricao, id, nome, tags) VALUES ('user2', toTimestamp(now()), 'Beautiful landscape', 2, 'Sunset over the Mountains', {'nature', 'scenery'});
+INSERT INTO videos.video_autor(autor, time, descricao, id, nome, tags) VALUES ('user3', toTimestamp(now()), 'Educational content', 3, 'Introduction to Quantum Physics', {'education', 'science'});
+INSERT INTO videos.video_autor(autor, time, descricao, id, nome, tags) VALUES ('user4', toTimestamp(now()), 'Cooking tutorial', 4, 'Homemade Pizza Recipe', {'cooking', 'food'});
+INSERT INTO videos.video_autor(autor, time, descricao, id, nome, tags) VALUES ('user5', toTimestamp(now()), 'Travel vlog', 5, 'Exploring Tokyo', {'travel', 'adventure'});
+INSERT INTO videos.video_autor(autor, time, descricao, id, nome, tags) VALUES ('user6', toTimestamp(now()), 'Gaming session', 6, 'Fortnite Battle Royale', {'gaming', 'entertainment'});
+INSERT INTO videos.video_autor(autor, time, descricao, id, nome, tags) VALUES ('user7', toTimestamp(now()), 'DIY project', 7, 'Handmade Jewelry Tutorial', {'diy', 'crafts'});
+INSERT INTO videos.video_autor(autor, time, descricao, id, nome, tags) VALUES ('user8', toTimestamp(now()), 'Fitness tips', 8, 'Full Body Workout Routine', {'fitness', 'health'});
+INSERT INTO videos.video_autor(autor, time, descricao, id, nome, tags) VALUES ('user9', toTimestamp(now()), 'Tech review', 9, 'Latest Smartphone Unboxing', {'technology', 'gadgets'});
+INSERT INTO videos.video_autor(autor, time, descricao, id, nome, tags) VALUES ('user10', toTimestamp(now()), 'Music cover', 10, 'Acoustic Guitar Performance', {'music', 'performance'});
+
+
+-- insert videos.comentarios
+INSERT INTO videos.comentarios(id, autor, comentario, time, video_id) VALUES (1, 'user1', 'Great video!', toTimestamp(now()), 1);
+INSERT INTO videos.comentarios(id, autor, comentario, time, video_id) VALUES (2, 'user2', 'Nice content!', toTimestamp(now()), 2);
+INSERT INTO videos.comentarios(id, autor, comentario, time, video_id) VALUES (3, 'user3', 'Very informative', toTimestamp(now()), 3);
+INSERT INTO videos.comentarios(id, autor, comentario, time, video_id) VALUES (4, 'user4', 'Delicious recipe!', toTimestamp(now()), 4);
+INSERT INTO videos.comentarios(id, autor, comentario, time, video_id) VALUES (5, 'user5', 'Love the travel vlog!', toTimestamp(now()), 5);
+INSERT INTO videos.comentarios(id, autor, comentario, time, video_id) VALUES (6, 'user6', 'Awesome gaming session!', toTimestamp(now()), 6);
+INSERT INTO videos.comentarios(id, autor, comentario, time, video_id) VALUES (7, 'user7', 'Beautiful DIY project!', toTimestamp(now()), 7);
+INSERT INTO videos.comentarios(id, autor, comentario, time, video_id) VALUES (8, 'user8', 'Great fitness tips!', toTimestamp(now()), 8);
+INSERT INTO videos.comentarios(id, autor, comentario, time, video_id) VALUES (9, 'user9', 'Interesting tech review!', toTimestamp(now()), 9);
+INSERT INTO videos.comentarios(id, autor, comentario, time, video_id) VALUES (10, 'user10', 'Amazing music cover!', toTimestamp(now()), 10);
+
+
+-- INSERT INTO videos.followers
+INSERT INTO videos.followers (video_id, user) VALUES (1, {'user2', 'user3', 'user5', 'user7', 'user9'});
+INSERT INTO videos.followers (video_id, user) VALUES (2, {'user1', 'user4', 'user6', 'user8', 'user10'});
+INSERT INTO videos.followers (video_id, user) VALUEs (3, {'user2', 'user4', 'user6', 'user8', 'user10'});
+INSERT INTO videos.followers (video_id, user) VALUEs (4, {'user1', 'user3', 'user5', 'user7', 'user9'});
+INSERT INTO videos.followers (video_id, user) VALUES (5, {'user2', 'user4', 'user6', 'user8', 'user10'})
+INSERT INTO videos.followers (video_id, user) VALUES (6, {'user1', 'user3', 'user5', 'user7', 'user9'});
+INSERT INTO videos.followers (video_id, user) VALUES (7, {'user2', 'user4', 'user6', 'user8', 'user10'});
+INSERT INTO videos.followers (video_id, user) VALUES (8, {'user1', 'user3', 'user5', 'user7', 'user9'});
+INSERT INTO videos.followers (video_id, user) VALUES (9, {'user2', 'user4', 'user6', 'user8', 'user10'});
+INSERT INTO videos.followers (video_id, user) VALUES  (10, {'user1', 'user3', 'user5', 'user7', 'user9'});
+
+
+-- INSERT INTO videos.eventos
+INSERT INTO videos.eventos (video_id, autor, date, time, tipo) VALUES (1, 'user1', toTimestamp(now()), toTimestamp(now()), 'play'); 
+INSERT INTO videos.eventos (video_id, autor, date, time, tipo) VALUES (2, 'user2', toTimestamp(now()), toTimestamp(now()), 'pause'); 
+INSERT INTO videos.eventos (video_id, autor, date, time, tipo) VALUES (3, 'user3', toTimestamp(now()), toTimestamp(now()), 'stop'); 
+INSERT INTO videos.eventos (video_id, autor, date, time, tipo) VALUES (4, 'user4', toTimestamp(now()), toTimestamp(now()), 'play'); 
+INSERT INTO videos.eventos (video_id, autor, date, time, tipo) VALUES (5, 'user5', toTimestamp(now()), toTimestamp(now()), 'pause'); 
+INSERT INTO videos.eventos (video_id, autor, date, time, tipo) VALUES (6, 'user6', toTimestamp(now()), toTimestamp(now()), 'stop'); 
+INSERT INTO videos.eventos (video_id, autor, date, time, tipo) VALUES (7, 'user7', toTimestamp(now()), toTimestamp(now()), 'play'); 
+INSERT INTO videos.eventos (video_id, autor, date, time, tipo) VALUES (8, 'user8', toTimestamp(now()), toTimestamp(now()), 'pause'); 
+INSERT INTO videos.eventos (video_id, autor, date, time, tipo) VALUES (9, 'user9', toTimestamp(now()), toTimestamp(now()), 'stop'); 
+INSERT INTO videos.eventos (video_id, autor, date, time, tipo) VALUES (10, 'user10', toTimestamp(now()), toTimestamp(now()), 'play');
+
+
+-- INSERT INTO videos.rating
+INSERT INTO videos.rating (video_id, rate) VALUES (1, 5);
+INSERT INTO videos.rating (video_id, rate) VALUES (2, 4);
+INSERT INTO videos.rating (video_id, rate) VALUES (3, 3);
+INSERT INTO videos.rating (video_id, rate) VALUES (4, 5);
+INSERT INTO videos.rating (video_id, rate) VALUES (5, 4);
+INSERT INTO videos.rating (video_id, rate) VALUES (6, 3);
+INSERT INTO videos.rating (video_id, rate) VALUES (7, 5);
+INSERT INTO videos.rating (video_id, rate) VALUES (8, 4);
+INSERT INTO videos.rating (video_id, rate) VALUES (9, 3);
+INSERT INTO videos.rating (video_id, rate) VALUES (10, 5);
+
+
+-- INSERT INTO videos.user_comentario
+INSERT INTO videos.user_comentario(autor, time, comentario, video_id) VALUES ('user1', toTimestamp(now()), 'Great video!', 1);
+INSERT INTO videos.user_comentario(autor, time, comentario, video_id) VALUES ('user2', toTimestamp(now()), 'Nice content!', 2);
+INSERT INTO videos.user_comentario(autor, time, comentario, video_id) VALUES ('user3', toTimestamp(now()), 'Very informative', 3);
+INSERT INTO videos.user_comentario(autor, time, comentario, video_id) VALUES ('user4', toTimestamp(now()), 'Delicious recipe!', 4);
+INSERT INTO videos.user_comentario(autor, time, comentario, video_id) VALUES ('user5', toTimestamp(now()), 'Love the travel vlog!', 5);
+INSERT INTO videos.user_comentario(autor, time, comentario, video_id) VALUES ('user6', toTimestamp(now()), 'Awesome gaming session!', 6);
+INSERT INTO videos.user_comentario(autor, time, comentario, video_id) VALUES ('user7', toTimestamp(now()), 'Beautiful DIY project!', 7);
+INSERT INTO videos.user_comentario(autor, time, comentario, video_id) VALUES ('user8', toTimestamp(now()), 'Great fitness tips!', 8);
+INSERT INTO videos.user_comentario(autor, time, comentario, video_id) VALUES ('user9', toTimestamp(now()), 'Interesting tech review!', 9);
+INSERT INTO videos.user_comentario(autor, time, comentario, video_id) VALUES ('user10', toTimestamp(now()), 'Amazing music cover!', 10);
+
+
+-- INSERT INTO videos.video_comentario
+INSERT INTO videos.video_comentario(video_id, time, autor, comentario) VALUES (1, toTimestamp(now()), 'user1', 'Great video!');
+INSERT INTO videos.video_comentario(video_id, time, autor, comentario) VALUES (2, toTimestamp(now()), 'user2', 'Nice content!');
+INSERT INTO videos.video_comentario(video_id, time, autor, comentario) VALUES (3, toTimestamp(now()), 'user3', 'Very informative');
+INSERT INTO videos.video_comentario(video_id, time, autor, comentario) VALUES (4, toTimestamp(now()), 'user4', 'Delicious recipe!');
+INSERT INTO videos.video_comentario(video_id, time, autor, comentario) VALUES (5, toTimestamp(now()), 'user5', 'Love the travel vlog!');
+INSERT INTO videos.video_comentario(video_id, time, autor, comentario) VALUES (6, toTimestamp(now()), 'user6', 'Awesome gaming session!');
+INSERT INTO videos.video_comentario(video_id, time, autor, comentario) VALUES (7, toTimestamp(now()), 'user7', 'Beautiful DIY project!');
+INSERT INTO videos.video_comentario(video_id, time, autor, comentario) VALUES (8, toTimestamp(now()), 'user8', 'Great fitness tips!');
+INSERT INTO videos.video_comentario(video_id, time, autor, comentario) VALUES (9, toTimestamp(now()), 'user9', 'Interesting tech review!');
+INSERT INTO videos.video_comentario(video_id, time, autor, comentario) VALUES (10, toTimestamp(now()), 'user10', 'Amazing music cover!');
+
+
+
+
+
+

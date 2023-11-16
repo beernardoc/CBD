@@ -1,0 +1,15 @@
+
+ [json]
+--------------------------------------------------------------------------------------------------------------------------
+    {"id": 5, "autor": "user5", "comentario": "Love the travel vlog!", "time": "2023-11-16 10:50:03.398Z", "video_id": 5}
+  {"id": 10, "autor": "user10", "comentario": "Amazing music cover!", "time": "2023-11-16 10:50:03.406Z", "video_id": 10}
+             {"id": 1, "autor": "user1", "comentario": "Great video!", "time": "2023-11-16 10:50:03.391Z", "video_id": 1}
+      {"id": 8, "autor": "user8", "comentario": "Great fitness tips!", "time": "2023-11-16 10:50:03.403Z", "video_id": 8}
+            {"id": 2, "autor": "user2", "comentario": "Nice content!", "time": "2023-11-16 10:50:03.393Z", "video_id": 2}
+        {"id": 4, "autor": "user4", "comentario": "Delicious recipe!", "time": "2023-11-16 10:50:03.397Z", "video_id": 4}
+   {"id": 7, "autor": "user7", "comentario": "Beautiful DIY project!", "time": "2023-11-16 10:50:03.401Z", "video_id": 7}
+  {"id": 6, "autor": "user6", "comentario": "Awesome gaming session!", "time": "2023-11-16 10:50:03.400Z", "video_id": 6}
+ {"id": 9, "autor": "user9", "comentario": "Interesting tech review!", "time": "2023-11-16 10:50:03.404Z", "video_id": 9}
+         {"id": 3, "autor": "user3", "comentario": "Very informative", "time": "2023-11-16 10:50:03.394Z", "video_id": 3}
+
+(10 rows)

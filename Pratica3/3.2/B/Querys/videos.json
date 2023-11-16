@@ -1,0 +1,15 @@
+
+ [json]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                          {"id": 5, "upload": "2023-11-16 10:39:28.409Z", "autor": "user5", "descricao": "Travel vlog", "nome": "Exploring Tokyo", "tags": ["adventure", "travel"]}
+           {"id": 10, "upload": "2023-11-16 12:10:40.125Z", "autor": "user10", "descricao": "Music cover", "nome": "Acoustic Guitar Performance", "tags": ["music", "performance"]}
+                      {"id": 1, "upload": "2023-11-16 10:37:13.136Z", "autor": "user1", "descricao": "Funny cat video", "nome": "Crazy Cat Compilation", "tags": ["funny", "pets"]}
+                 {"id": 8, "upload": "2023-11-16 10:41:25.789Z", "autor": "user8", "descricao": "Fitness tips", "nome": "Full Body Workout Routine", "tags": ["fitness", "health"]}
+          {"id": 2, "upload": "2023-11-16 10:38:22.041Z", "autor": "user2", "descricao": "Beautiful landscape", "nome": "Sunset over the Mountains", "tags": ["nature", "scenery"]}
+                   {"id": 4, "upload": "2023-11-16 10:39:12.853Z", "autor": "user4", "descricao": "Cooking tutorial", "nome": "Homemade Pizza Recipe", "tags": ["cooking", "food"]}
+                      {"id": 7, "upload": "2023-11-16 10:41:14.709Z", "autor": "user7", "descricao": "DIY project", "nome": "Handmade Jewelry Tutorial", "tags": ["crafts", "diy"]}
+            {"id": 6, "upload": "2023-11-16 10:40:59.998Z", "autor": "user6", "descricao": "Gaming session", "nome": "Fortnite Battle Royale", "tags": ["entertainment", "gaming"]}
+             {"id": 9, "upload": "2023-11-16 10:41:47.751Z", "autor": "user9", "descricao": "Tech review", "nome": "Latest Smartphone Unboxing", "tags": ["gadgets", "technology"]}
+ {"id": 3, "upload": "2023-11-16 10:38:43.442Z", "autor": "user3", "descricao": "Educational content", "nome": "Introduction to Quantum Physics", "tags": ["education", "science"]}
+
+(10 rows)

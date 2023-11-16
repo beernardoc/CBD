@@ -1,0 +1,20 @@
+CREATE KEYSPACE videos with replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+CREATE TABLE videos.users(username text PRIMARY KEY, nome text, email text, selo timestamp);
+
+CREATE TABLE videos.video(id int, autor text, nome text, descricao text, tags set <text >, upload timestamp, PRIMARY KEY ((id), upload));
+
+CREATE TABLE videos.video_autor(id int, autor text, nome text, descricao text, tags set <text >, time timestamp, PRIMARY KEY ((autor), time));
+
+CREATE TABLE videos.comentarios (id int PRIMARY KEY, video_id int, autor text, comentario text, time timestamp);
+
+CREATE TABLE videos.followers(video_id int PRIMARY KEY, user set <text >);
+
+CREATE TABLE videos.eventos(video_id int, autor text, time timestamp, date timestamp, tipo text,PRIMARY KEY ((video_id, autor),date));
+
+CREATE TABLE videos.rating(video_id int, rate int, primary KEY ((video_id),rate));
+
+CREATE TABLE videos.user_comentario (autor text, comentario text, video_id int, time timestamp, primary KEY ((autor),time));
+
+CREATE TABLE videos.video_comentario (autor text, comentario text , video_id int, time timestamp, PRIMARY KEY ((video_id), time));
+
