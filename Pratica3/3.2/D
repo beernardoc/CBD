@@ -1,0 +1,60 @@
+-- 1. Os últimos 3 comentários introduzidos para um vídeo;
+
+SELECT * FROM video_comentario WHERE video_id = 4 LIMIT 3;
+
+
+-- 2. Lista das tags de determinado vídeo;
+
+SELECT tags FROM video WHERE id = 1;
+
+
+-- 3. Todos os vídeos com a tag Aveiro;
+
+/*Com as tabelas criadas até o momento não é possível realizar a consulta, uma vez que envolve a verificação de uma condição em uma coluna de coleção.
+Para resolver este problema podemos, para além de usar o "ALLOW FILTERING", criar uma nova tabela "video_tag" e a partir dela realizar a consulta proposta. */
+
+SELECT * FROM video where tags CONTAINS 'adventure' ALLOW FILTERING ;
+
+/* Optei por usar o allow filtering já que a pesquisa não será muito exaustiva */
+
+
+-- 4. Os últimos 5 eventos de determinado vídeo realizados por um utilizador;
+
+SELECT * FROM videos.eventos WHERE video_id = 1 AND autor = 'user1';
+
+
+-- 5. Vídeos partilhados por determinado utilizador (maria1987, por exemplo) num determinado período de tempo (Agosto de 2017, por exemplo);
+
+-- Novamente a query não é possível sem a utilização do 'Allow filtering' ou sem a criação de uma nova tabela que represente a relação desejada
+
+
+-- 6. Os últimos 10 vídeos, ordenado inversamente pela data da partilhada;
+
+-- Impossível de realizar esta consulta 
+
+-- 7. Todos os seguidores (followers) de determinado vídeo;
+
+SELECT * FROM followers WHERE video_id = 3;
+
+
+-- 8. Todos os comentários (dos vídeos) que determinado utilizador está a seguir (following);
+
+-- Novamente impossivel uma vez que seria necessario utilizar operadores como "Join" ou criar novas tabelas
+
+
+-- 9. Os 5 vídeos com maior rating;
+
+-- Novamente impossivel uma vez que cassandra não suporta operações join 
+
+
+-- 10. Uma query que retorne todos os vídeos e que mostre claramente a forma pela qual estão ordenados;
+
+-- Impossivel de realizar em cassandra
+
+
+11. Lista com as Tags existentes e o número de vídeos catalogados com cada uma delas;
+
+
+12. .. 13. Descreva 2 perguntas adicionais à base dados (alíneas 12 a 13), significativamente
+distintas das anteriores, e apresente igualmente a solução de pesquisa para cada questão.
+
