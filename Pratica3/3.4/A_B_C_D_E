@@ -1,0 +1,64 @@
+CREATE KEYSPACE biblioteca WITH replication = {'class': 'SimpleStrategy', 'replication_factor':1};
+
+use biblioteca ;
+
+CREATE TABLE Autor (
+    id UUID PRIMARY KEY,
+    nome text,
+    nacionalidade text,
+    obras set<text>,
+    premios list<text>
+);
+
+CREATE TABLE Editora (
+    id UUID PRIMARY KEY,
+    nome text,
+    cidade text,
+    livros_publicados map<text, int>,
+    fundacao_date timestamp
+);
+
+CREATE TABLE Livro (
+    id UUID PRIMARY KEY,
+    titulo text,
+    autor_id UUID,
+    editora_id UUID,
+    ano_publicacao int,
+    generos set<text>
+);
+
+CREATE TABLE Leitor (
+    id UUID PRIMARY KEY,
+    nome text,
+    idade int,
+    livros_lidos set<UUID>,
+    generos_preferidos set<text>
+);
+
+CREATE INDEX idx_nacionalidade_autor ON Autor (nacionalidade);
+CREATE INDEX idx_cidade_editora ON Editora (cidade);
+CREATE INDEX idx_genero_livro ON Livro (generos);
+CREATE INDEX idx_idade_leitor ON Leitor (idade);
+
+
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Machado de Assis', 'Brasileira', {'Dom Casmurro', 'Memórias Póstumas de Brás Cubas'}, ['Prêmio Machado de Assis', 'Prêmio Jabuti']);
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Companhia das Letras', 'São Paulo', {'Dom Casmurro': 6, 'Memórias Póstumas de Brás Cubas': 4}, '1986-04-01');
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'Dom Casmurro',af9b7e05-9f8a-4d75-a654-5be141337078 ,2b4f0a1e-2e96-46cc-9731-669c4e333216 , 1899, {'Ficção', 'Romance'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Ana', 25, {cfea086d-ebf6-4176-815e-89eefcfe6ddb}, {'Ficção', 'Romance'});
+cqlsh:bibl
+
+
+UPDATE Autor SET premios = ['Prêmio Machado de Assis', 'Prêmio Jabuti', 'Prêmio Nobel'] WHERE id = af9b7e05-9f8a-4d75-a654-5be141337078;
+UPDATE Editora SET livros_publicados = {'Dom Casmurro': 7, 'Memórias Póstumas de Brás Cubas': 5} WHERE id = 2b4f0a1e-2e96-46cc-9731-669c4e333216;
+UPDATE Livro SET generos = {'Ficção', 'Romance', 'Drama'} WHERE id = cfea086d-ebf6-4176-815e-89eefcfe6ddb;
+UPDATE Leitor SET idade = 30 WHERE id = 71cfacff-5521-4e34-9762-4abbe402384c;
+UPDATE Leitor SET generos_preferidos = {'Ficção', 'Romance', 'Mistério'} WHERE id = 71cfacff-5521-4e34-9762-4abbe402384c;
+
+
+DELETE FROM Autor WHERE id = af9b7e05-9f8a-4d75-a654-5be141337078;
+DELETE FROM Editora WHERE id = 2b4f0a1e-2e96-46cc-9731-669c4e333216;
+DELETE FROM Livro WHERE id = cfea086d-ebf6-4176-815e-89eefcfe6ddb;
+DELETE FROM Leitor WHERE id = 71cfacff-5521-4e34-9762-4abbe402384c;
+
+
+
