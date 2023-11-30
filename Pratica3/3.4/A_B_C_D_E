@@ -42,10 +42,57 @@ CREATE INDEX idx_idade_leitor ON Leitor (idade);
 
 
 INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Machado de Assis', 'Brasileira', {'Dom Casmurro', 'Memórias Póstumas de Brás Cubas'}, ['Prêmio Machado de Assis', 'Prêmio Jabuti']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Gabriel García Márquez', 'Colombiana', {'Cem Anos de Solidão', 'O Amor nos Tempos do Cólera'}, ['Prêmio Nobel de Literatura']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Jane Austen', 'Inglesa', {'Orgulho e Preconceito', 'Razão e Sensibilidade'}, ['Nenhum prêmio conhecido']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Haruki Murakami', 'Japonesa', {'Norwegian Wood', 'Kafka à Beira-Mar'}, ['Prêmio Jerusalém']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Chimamanda Ngozi Adichie', 'Nigeriana', {'Meio Sol Amarelo', 'Americanah'}, ['Prêmio Orange']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Leo Tolstoy', 'Russa', {'Guerra e Paz', 'Anna Karenina'}, ['Nenhum prêmio conhecido']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Isabel Allende', 'Chilena', {'A Casa dos Espíritos', 'Eva Luna'}, ['Prêmio Nacional de Literatura']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Ngũgĩ wa Thiong', 'Queniano', {'Petals of Blood', 'Wizard of the Crow'}, ['Prêmio Internacional Neustadt']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'J.K. Rowling', 'Britânica', {'Harry Potter series', 'O Chamado do Cuco'}, ['Ordem do Império Britânico']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Albert Camus', 'Argelina', {'O Estrangeiro', 'A Peste'}, ['Prêmio Nobel de Literatura']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Agatha Christie', 'Britânica', {'Assassinato no Orient Express', 'E Não Sobrou Nenhum'}, ['Nenhum prêmio conhecido']);
+INSERT INTO Autor (id, nome, nacionalidade, obras, premios) VALUES (uuid(), 'Kazuo Ishiguro', 'Britânico', {'Os Despojos do Dia', 'Nunca Me Deixe Ir'}, ['Prêmio Nobel de Literatura']);
+
+
 INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Companhia das Letras', 'São Paulo', {'Dom Casmurro': 6, 'Memórias Póstumas de Brás Cubas': 4}, '1986-04-01');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'HarperCollins', 'Nova Iorque', {'Cem Anos de Solidão': 8, 'O Amor nos Tempos do Cólera': 5}, '1817-10-24');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Penguin Random House', 'Londres', {'Orgulho e Preconceito': 10, 'Razão e Sensibilidade': 6}, '1998-07-01');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Vintage Books', 'Nova Iorque', {'Norwegian Wood': 7, 'Kafka à Beira-Mar': 4}, '1954-01-01');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Alfred A. Knopf', 'Nova Iorque', {'Meio Sol Amarelo': 5, 'Americanah': 3}, '1915-08-13');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Russian State Library', 'Moscou', {'Guerra e Paz': 12, 'Anna Karenina': 8}, '1862-08-01');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Plaza & Janés', 'Barcelona', {'A Casa dos Espíritos': 6, 'Eva Luna': 4}, '1959-01-01');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'East African Educational Publishers', 'Nairobi', {'Petals of Blood': 3, 'Wizard of the Crow': 5}, '1965-01-01');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Bloomsbury Publishing', 'Londres', {'Harry Potter series': 7, 'O Chamado do Cuco': 2}, '1986-01-01');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Gallimard', 'Paris', {'O Estrangeiro': 4, 'A Peste': 6}, '1911-05-31');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Dodd, Mead and Company', 'Nova Iorque', {'Assassinato no Orient Express': 5, 'E Não Sobrou Nenhum': 3}, '1839-01-01');
+INSERT INTO Editora (id, nome, cidade, livros_publicados, fundacao_date) VALUES (uuid(), 'Faber and Faber', 'Londres', {'Os Despojos do Dia': 4, 'Nunca Me Deixe Ir': 3}, '1929-01-01');
+
+
 INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'Dom Casmurro',af9b7e05-9f8a-4d75-a654-5be141337078 ,2b4f0a1e-2e96-46cc-9731-669c4e333216 , 1899, {'Ficção', 'Romance'});
-INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Ana', 25, {cfea086d-ebf6-4176-815e-89eefcfe6ddb}, {'Ficção', 'Romance'});
-cqlsh:bibl
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'Orgulho e Preconceito', f25d9b90-2a16-4da3-943a-648bbca96d21, c67f86b6-32b3-4caa-8571-b71f6254c588, 1813, {'Ficção', 'Romance'});
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'Norwegian Wood', 96aa5294-9d53-4a8c-aedf-20aa5bdc24e5, c67f86b6-32b3-4caa-8571-b71f6254c588, 1987, {'Ficção', 'Romance'});
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'Meio Sol Amarelo', 96aa5294-9d53-4a8c-aedf-20aa5bdc24e5, c67f86b6-32b3-4caa-8571-b71f6254c588, 2006, {'Ficção', 'Histórico'});
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'Guerra e Paz', 2bb73486-702f-45b6-ae2b-1004414f8b28, c67f86b6-32b3-4caa-8571-b71f6254c588, 1869, {'Ficção', 'Histórico'});
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'A Casa dos Espíritos', f42cfc29-e3ca-43ab-88fb-0b3e275319e0, f42cfc29-e3ca-43ab-88fb-0b3e275319e0, 1982, {'Ficção', 'Mágico Realismo'});
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'Petals of Blood', 0ba1aa8d-c5b5-4043-83ba-d017e5010ac8, 0ba1aa8d-c5b5-4043-83ba-d017e5010ac8, 1977, {'Ficção', 'Político'});
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'Harry Potter e a Pedra Filosofal', c0e89ac0-34af-489d-aa77-ded9b85e9227, c0e89ac0-34af-489d-aa77-ded9b85e9227, 1997, {'Ficção', 'Fantasia'});
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'O Estrangeiro', 8b625d37-87d8-4a7d-91a4-b04d719bc677, 8b625d37-87d8-4a7d-91a4-b04d719bc677, 1942, {'Ficção', 'Filosofia'});
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'Assassinato no Orient Express', 2bb73486-702f-45b6-ae2b-1004414f8b28, 2bb73486-702f-45b6-ae2b-1004414f8b28, 1934, {'Ficção', 'Suspense'});
+INSERT INTO Livro (id, titulo, autor_id, editora_id, ano_publicacao, generos) VALUES (uuid(), 'Os Despojos do Dia', cb4c3610-51e9-46b8-997c-63c86c74b031, cb4c3610-51e9-46b8-997c-63c86c74b031, 1989, {'Ficção', 'Romance'});
+
+
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Carlos', 32, {701008a5-fbac-4338-9a1d-e16d4b48d802, d89942af-ceb9-4fda-ad3d-ba0621c036d3}, {'Ficção', 'Suspense'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Julia', 22, {f50bb2b4-818b-48b6-b7ee-f6e87ec91bee, 32279619-db56-45f0-b828-928abb79928d}, {'Ficção', 'Realismo Mágico'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Ricardo', 29, {87c35959-6c62-4606-81fc-b0a169998a5a, e06378c9-5305-4faf-8744-c24af4267a4a}, {'Ficção', 'Histórico'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Isabel', 26, {d389151c-c94c-4b0d-9269-e9001e6b44c2, 873da314-3991-4ba5-89a7-e6b06bc0d081}, {'Ficção', 'Romance'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'João', 35, {59646be0-8e4b-4fd3-90c0-9e2187358b18, 846f61d8-1f4e-402d-ac20-443b11d839d9}, {'Fantasia', 'Ficção'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Mariana', 28, {3bc2e07d-a1b1-4970-a5ac-58cfaac6eebe, 59646be0-8e4b-4fd3-90c0-9e2187358b18}, {'Ficção', 'Filosofia'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Pedro', 30, {701008a5-fbac-4338-9a1d-e16d4b48d802, 3bc2e07d-a1b1-4970-a5ac-58cfaac6eebe}, {'Ficção', 'Romance'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Lucia', 27, {f50bb2b4-818b-48b6-b7ee-f6e87ec91bee, e06378c9-5305-4faf-8744-c24af4267a4a}, {'Ficção', 'Suspense'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Rafael', 33, {87c35959-6c62-4606-81fc-b0a169998a5a, 32279619-db56-45f0-b828-928abb79928d}, {'Ficção', 'Realismo Mágico'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Sofia', 24, {d389151c-c94c-4b0d-9269-e9001e6b44c2, 873da314-3991-4ba5-89a7-e6b06bc0d081}, {'Ficção', 'Histórico'});
+INSERT INTO Leitor (id, nome, idade, livros_lidos, generos_preferidos) VALUES (uuid(), 'Hugo', 31, {59646be0-8e4b-4fd3-90c0-9e2187358b18, 846f61d8-1f4e-402d-ac20-443b11d839d9}, {'Fantasia', 'Ficção'});
 
 
 UPDATE Autor SET premios = ['Prêmio Machado de Assis', 'Prêmio Jabuti', 'Prêmio Nobel'] WHERE id = af9b7e05-9f8a-4d75-a654-5be141337078;

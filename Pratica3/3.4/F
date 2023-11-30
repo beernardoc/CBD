@@ -1,0 +1,52 @@
+-- 1) Listar os autores brasileiros e suas obras.
+SELECT nome, obras FROM Autor WHERE nacionalidade = 'Brasileira';
+
+
+-- 2) Encontrar os livros de um determinado gênero
+SELECT * FROM Livro WHERE generos CONTAINS 'Ficção';
+
+
+-- 3) Obter os prêmios recebidos por um autor específico
+
+-- Necessario criar o seguinte indice:
+
+CREATE INDEX idx_autor_nome ON Autor (nome);
+
+-- E entao executar a query
+
+SELECT nome, premios FROM Autor WHERE nome = 'Kazuo Ishiguro';
+
+
+-- 4) Encontrar os livros de um autor específico
+
+-- Necessario criar o indice:
+
+CREATE INDEX idx_livro_autor ON Livro (autor_id);
+
+-- E realizar a query:
+
+SELECT * FROM Livro WHERE autor_id = cb4c3610-51e9-46b8-997c-63c86c74b031;
+
+
+-- 5) Obter a idade média dos leitores:
+
+SELECT AVG(idade) FROM Leitor;
+
+
+-- 6) Encontrar os leitores que têm "Ficção" como gênero preferido:
+
+-- Necessario criar o seguinte indice:
+
+CREATE INDEX idx_leitor_generos_preferidos ON Leitor (generos_preferidos);
+
+-- E executar a query:
+
+SELECT * FROM Leitor WHERE generos_preferidos CONTAINS 'Ficção';
+
+
+
+
+
+
+
+

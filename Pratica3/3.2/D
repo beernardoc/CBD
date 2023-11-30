@@ -10,12 +10,13 @@ SELECT tags FROM video WHERE id = 1;
 
 -- 3. Todos os vídeos com a tag Aveiro;
 
-/*Com as tabelas criadas até o momento não é possível realizar a consulta, uma vez que envolve a verificação de uma condição em uma coluna de coleção.
-Para resolver este problema podemos, para além de usar o "ALLOW FILTERING", criar uma nova tabela "video_tag" e a partir dela realizar a consulta proposta. */
+-- Para que a pesquisa fosse possível sem o uso de Allow Filtering, criei o seguinte índice:
 
-SELECT * FROM video where tags CONTAINS 'adventure' ALLOW FILTERING ;
+CREATE INDEX ON video (tags);
 
-/* Optei por usar o allow filtering já que a pesquisa não será muito exaustiva */
+-- E entao realizei a pesquisa ('adventure' uma vez que Aveiro não estaria presente):
+
+SELECT * FROM video WHERE tags CONTAINS 'adventure';
 
 
 -- 4. Os últimos 5 eventos de determinado vídeo realizados por um utilizador;
@@ -25,12 +26,14 @@ SELECT * FROM videos.eventos WHERE video_id = 1 AND autor = 'user1';
 
 -- 5. Vídeos partilhados por determinado utilizador (maria1987, por exemplo) num determinado período de tempo (Agosto de 2017, por exemplo);
 
--- Novamente a query não é possível sem a utilização do 'Allow filtering' ou sem a criação de uma nova tabela que represente a relação desejada
+-- Utilizado o user1 e uma outra data para que a pesquisa retorne dados.
 
+SELECT * FROM video_autor WHERE autor = 'user1' AND time >= '2017-08-01' AND time < '2023-11-30';
 
 -- 6. Os últimos 10 vídeos, ordenado inversamente pela data da partilhada;
 
--- Impossível de realizar esta consulta 
+-- Não foi possível realizar a consulta
+
 
 -- 7. Todos os seguidores (followers) de determinado vídeo;
 
@@ -54,7 +57,7 @@ SELECT * FROM followers WHERE video_id = 3;
 
 11. Lista com as Tags existentes e o número de vídeos catalogados com cada uma delas;
 
+-- Não consegui completar a query
 
-12. .. 13. Descreva 2 perguntas adicionais à base dados (alíneas 12 a 13), significativamente
-distintas das anteriores, e apresente igualmente a solução de pesquisa para cada questão.
+
 

@@ -11,11 +11,6 @@ cqlsh> SELECT release_version FROM system.local;
 // create keyspace:
 
 
-(1 rows)
-cqlsh> CREATE KEYSPACE IF NOT EXISTS minha_ks
-   ... WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1}; cqlsh> DESC
-DESC      DESCRIBE  
-cqlsh> DESCRIBE KEYSPACE minha_ks;
 
 CREATE KEYSPACE minha_ks WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
 
@@ -24,14 +19,6 @@ CREATE KEYSPACE minha_ks WITH replication = {'class': 'SimpleStrategy', 'replica
 // create table
 
 
-cqlsh> CREATE TABLE if NOT EXISTS minha_ks.minha_tabela(
-   ... id uuid PRIMARY KEY,
-   ... nome text,
-   ... idade int,
-   ... emails set <text>);
-cqlsh> DESCRIBE KEYSPACE minha_ks;
-
-CREATE KEYSPACE minha_ks WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
 
 CREATE TABLE minha_ks.minha_tabela (
     id uuid PRIMARY KEY,
@@ -54,35 +41,15 @@ CREATE TABLE minha_ks.minha_tabela (
     AND speculative_retry = '99p';
 
 
-cqlsh> DESCRIBE TABLE minha_ks.minha_tabela ;
+DESCRIBE TABLE minha_ks.minha_tabela ;
 
-CREATE TABLE minha_ks.minha_tabela (
-    id uuid PRIMARY KEY,
-    emails set<text>,
-    idade int,
-    nome text
-) WITH additional_write_policy = '99p'
-    AND bloom_filter_fp_chance = 0.01
-    AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
-    AND comment = ''
-    AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy', 'max_threshold': '32', 'min_threshold': '4'}
-    AND compression = {'chunk_length_in_kb': '16', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}
-    AND crc_check_chance = 1.0
-    AND default_time_to_live = 0
-    AND gc_grace_seconds = 864000
-    AND max_index_interval = 2048
-    AND memtable_flush_period_in_ms = 0
-    AND min_index_interval = 128
-    AND read_repair = 'BLOCKING'
-    AND speculative_retry = '99p';
-    
+
     
 // CRUD:
 
-cqlsh> INSERT INTO minha_ks.minha_tabela (id, nome , idade , emails )
-   ... VALUES ( uuid(), 'Alice', 25,{'alice@teste.com','alice@ua.pt'}) ;
+INSERT INTO minha_ks.minha_tabela (id, nome , idade , emails ) VALUES ( uuid(), 'Alice', 25,{'alice@teste.com','alice@ua.pt'}) ;
    
-cqlsh> SELECT * from minha_ks.minha_tabela ;
+SELECT * from minha_ks.minha_tabela ;
 
  id                                   | emails                             | idade | nome
 --------------------------------------+------------------------------------+-------+-------
@@ -91,16 +58,16 @@ cqlsh> SELECT * from minha_ks.minha_tabela ;
 (1 rows)
 
 
-cqlsh> UPDATE minha_ks.minha_tabela SET idade = 26 WHERE id = d15aa4b6-c390-432e-91ae-6396698e443d;
-cqlsh> SELECT * from minha_ks.minha_tabela ;
+UPDATE minha_ks.minha_tabela SET idade = 26 WHERE id = d15aa4b6-c390-432e-91ae-6396698e443d;
+SELECT * from minha_ks.minha_tabela ;
 
  id                                   | emails                             | idade | nome
 --------------------------------------+------------------------------------+-------+-------
  d15aa4b6-c390-432e-91ae-6396698e443d | {'alice@teste.com', 'alice@ua.pt'} |    26 | Alice
 
 (1 rows)
-cqlsh> INSERT INTO minha_ks.minha_tabela (id,nome) VALUES ( uuid(), 'Joao') USING TTL 3600;
-cqlsh> SELECT * from minha_ks.minha_tabela ;
+INSERT INTO minha_ks.minha_tabela (id,nome) VALUES ( uuid(), 'Joao') USING TTL 3600;
+SELECT * from minha_ks.minha_tabela ;
 
  id                                   | emails                             | idade | nome
 --------------------------------------+------------------------------------+-------+-------
@@ -110,6 +77,6 @@ cqlsh> SELECT * from minha_ks.minha_tabela ;
 (2 rows)
 cqlsh> 
 
-cqlsh> drop KEYSPACE IF EXISTS minha_ks ;
+rop KEYSPACE IF EXISTS minha_ks ;
 
 
