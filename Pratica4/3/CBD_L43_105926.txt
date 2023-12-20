@@ -1,0 +1,71 @@
+// A)
+
+
+// Entidade 'Utilizador' com: 'num', 'svn_id', 'real_name', 'organization' 
+// Entidade 'Projeto' com: 'project_name'
+// Vai existir a relação 'WORKS_ON' que vai ter um 'role' ((u:Utilizador)-[:WORKS ON]->(p:Projeto))
+
+
+// B)
+
+LOAD CSV WITH HEADERS FROM 'file:///git_selection.csv' AS row
+MERGE (u:Utilizador {num: toInteger(row.num), svn_id: row.svn_id, real_name: row.real_name, organization: row.organization})
+MERGE (p:Projeto {project_name: row.project_name})
+MERGE (u)-[r:WORKS_ON {role: row.role_on_project}]->(p);
+
+
+// C)
+
+// 1: 
+
+match (u:Utilizador)
+return u as Utilizador
+
+// 2:
+
+match (u:Utilizador)
+return distinct(u.real_name) as Name
+
+// 3:
+
+match (u:Utilizador)-[:WORKS_ON]->(p:Projeto)
+return distinct(p) as Projeto
+
+// 4:
+
+match (u:Utilizador)-[r:WORKS_ON]->(p:Projeto)
+with u.real_name as name, count(p) as total
+return name, total
+
+// 5:
+
+match (u:Utilizador)-[r:WORKS_ON]->(p:Projeto)
+with u.real_name as name, count(p) as total
+order by total desc
+return name, total
+
+// 6:
+
+MATCH (u:Utilizador)-[r:WORKS_ON]->(p:Projeto)
+WITH p.project_name as Projeto, count(u) as Total
+RETURN Projeto, Total
+
+// 7:
+
+match (u:Utilizador)-[r:WORKS_ON {role : "Committer"}]->(p:Projeto)
+with p.project_name as Projeto, count(r) as Total
+return Projeto, Total
+
+
+
+// 8:
+
+match (u1:Utilizador)-[:WORKS_ON]->(p:Projeto)<-[:WORKS_ON]-(u2:Utilizador)
+where u1.svn_id = "atm" and id(u1) < id(u2)
+return u1.real_name as Name1, u2.real_name as Name2, p.project_name as Projeto
+
+// 9:
+
+match (u1:Utilizador {svn_id: "atm"})-[r1:WORKS_ON {role: "PMC"}]->(p:Projeto)<-[r2:WORKS_ON {role:"Committer"}]-(u2:Utilizador)
+WHERE id(u1) < id(u2)
+RETURN u2 as Utilizador2
